@@ -1,0 +1,15 @@
+# Ignore the COLMAP output
+colmap_output/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore temporary files
+*.tmp
+*.log
+.DS_Store
