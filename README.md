@@ -82,7 +82,7 @@ Usage
 
     Capture Images:
         Take your images of the object vertically (portrait orientation) on your phone.
-        This ensures that the image dimensions closely match the sensor dimensions during calibration.
+        This ensures that the image dimensions match the sensor dimensions during calibration.
         Place these images in the images/ directory.
 
     Use COLMAP:
@@ -98,17 +98,6 @@ Usage
             colmap_output/dense/ containing .ply files.
 
 2. Prepare the Project Folder
-
-    Verify that you have the following structure:
-       colmap_output/
-    ├── sparse/
-    │   └── 0/
-    │       ├── cameras.bin
-    │       ├── images.bin
-    │       └── points3D.bin
-    └── dense/
-        └── processed_fused.ply  # or fused.ply
-    images/
 
     The script reads from colmap_output/sparse/0/ and colmap_output/dense/processed_fused.ply by default.
 
