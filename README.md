@@ -25,16 +25,6 @@ This project uses COLMAP to perform a 3D reconstruction (sparse and dense) from 
 ---
 
 ## Project Structure
-colmap_output/
-├── sparse/
-│   └── 0/
-│       ├── cameras.bin
-│       ├── images.bin
-│       └── points3D.bin
-└── dense/
-    └── processed_fused.ply  # or fused.ply
-
-images/
 
 - The `sparse/0/` folder contains COLMAP’s binary model files (`cameras.bin`, `images.bin`, and `points3D.bin`).  
 - The `dense/` folder contains the dense point cloud (`fused.ply` or `processed_fused.ply`).  
