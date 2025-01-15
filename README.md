@@ -39,7 +39,7 @@ github_script/
 │   │       └── points3D.bin    # 3D points reconstructed from sparse model
 │   └── dense/                  # Dense reconstruction data
 │       ├── fused.ply           # Raw dense point cloud (optional)
-│       └── processed_fused.ply # Cleaned dense point cloud
+│       └── processed_fused.ply # Cleaned dense point cloud processed in MeshLab or Blender
 ├── images/                     # Input images used for reconstruction
 │   └── ...                     # All input image files
 ├── projected_images_sfm/       # Output directory for images with projected 3D points
@@ -80,27 +80,41 @@ github_script/
 Usage
 1. Run COLMAP for Reconstruction
 
-    Collect your images of the object and place them in the images/ directory.
+    Capture Images:
+        Take your images of the object vertically (portrait orientation) on your phone.
+        This ensures that the image dimensions closely match the sensor dimensions during calibration.
+        Place these images in the images/ directory.
 
-    This will generate the sparse/0/ folder with .bin files, and dense/ folder with .ply files in colmap_output/.
+    Use COLMAP:
+        Create a COLMAP project and run:
+            Feature extraction
+            Feature matching
+            Sparse reconstruction
+            Dense reconstruction
+
+    Resulting Folders:
+        After COLMAP finishes, you should have:
+            colmap_output/sparse/0/ containing .bin files.
+            colmap_output/dense/ containing .ply files.
 
 2. Prepare the Project Folder
 
-    Ensure you have the following structure:
-
-    colmap_output
-    ├── sparse
-    │   └── 0
-    └── dense
-        └── fused.ply
-
+    Verify that you have the following structure:
+       colmap_output/
+    ├── sparse/
+    │   └── 0/
+    │       ├── cameras.bin
+    │       ├── images.bin
+    │       └── points3D.bin
+    └── dense/
+        └── processed_fused.ply  # or fused.ply
     images/
 
     The script reads from colmap_output/sparse/0/ and colmap_output/dense/processed_fused.ply by default.
 
     If your files differ, update the paths inside calibration_from_colmap.py.
 
-3. Run the Calibration Script
+4. Run the Calibration Script
 
     Navigate to the folder containing calibration_from_colmap.py (e.g., github_script/):
 
